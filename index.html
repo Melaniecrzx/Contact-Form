@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="icon" href="assets/images/favicon-32x32.png">
+    <script src="script.js". defer></script>
+</head>
+<body class="bg-green-200 min-h-screen flex items-center justify-center font-karla relative">
+    <form class="bg-white max-w-[343px] md:max-w-[690px] lg:max-w-[736px] w-full p-6 md:p-10 rounded-2xl my-8 md:my-32" id="formulaire">
+        <fieldset class="border-0 flex flex-col gap-10">
+            <div class="">
+                <legend class="text-heading font-bold text-gray-900 mb-6">Contact Us</legend>
+                <div class="grid grid-rows-[5] md:grid-rows-[4] md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2 wrapper">
+                        <label for="first-name" class="block font-normal text-sm text-gray-900">
+                            First Name <span class="text-green-600">*</span>
+                        </label>
+                        <input 
+                            id="first-name" 
+                            type="text" 
+                            
+                            class="w-full border py-3 px-6 border-gray-500 rounded-lg text-gray-900 focus:outline-none focus:ring-0 focus:border-gray-500">
+                            <p class="hidden text-sm error text-red-error">This field is required</p>
+                    </div>
+                    <div class="flex flex-col gap-2 wrapper">
+                        <label for="last-name" class="block font-normal text-sm text-gray-900">
+                            Last Name <span class="text-green-600">*</span>
+                        </label>
+                        <input 
+                            id="last-name" 
+                            type="text" 
+                            
+                            class="w-full border py-3 px-6 border-gray-500 rounded-lg text-gray-900 focus:outline-none focus:ring-0 focus:border-gray-500">
+                            <p class="hidden error text-sm text-red-error">This field is required</p>
+                        </div>
+                    <div class="flex flex-col gap-2 md:col-span-2 wrapper">
+                        <label for="email" class="block  font-normal text-sm text-gray-900">
+                            Email Address <span class="text-green-600">*</span>
+                        </label>
+                        <input 
+                            id="email" 
+                            type="email" 
+                            
+                            class="w-full border py-3 px-6 border-gray-500 rounded-lg text-gray-900 focus:outline-none focus:ring-0 focus:border-gray-500">
+                            <p class="hidden text-sm error text-red-error">Please enter a valid email address</p>
+                        </div>
+                    <div class="flex flex-col gap-2 md:col-span-2 wrapper">
+                        <label for="query-type" class="block font-normal text-sm text-gray-900">
+                            Query Type <span class="text-green-600">*</span>
+                        </label>
+                        <div class="flex flex-col gap-4 md:flex-row">
+                            <label class="flex items-center cursor-pointer w-full border py-3 px-6 border-gray-500 rounded-lg font-normal has-checked:bg-green-200 transition-colors">
+                                <input 
+                                type="radio" 
+                                name="query-type" 
+                                value="general"
+                                
+                                class="w-5 h-5 border border-gray-500 rounded-full appearance-none inline-block bg-white checked:bg-[url('/assets/images/icon-radio-selected.svg')] checked:bg-center checked:bg-no-repeat checked:bg-contain checked:border-none"
+                                >
+                                <span class="ml-3 text-sm md:text-base text-gray-900">General Enquiry</span>
+                            </label>
+            
+                            <label class="flex items-center cursor-pointer w-full border py-3 px-6 border-gray-500 rounded-lg font-normal has-checked:bg-green-200 transition-colors">
+                                <input 
+                                    type="radio" 
+                                    name="query-type" 
+                                    value="support"
+                                    
+                                    class="w-5 h-5 border border-gray-500 rounded-full appearance-none inline-block bg-white checked:bg-[url('/assets/images/icon-radio-selected.svg')] checked:bg-center checked:bg-no-repeat checked:bg-contain checked:border-none"
+                                >
+                                <span class="ml-3 text-sm md:text-base text-gray-900">Support Request</span>
+                            </label>
+                        </div>
+                        <p class="hidden text-sm error text-red-error">Please select a query type</p>
+                    </div>
+                    <div class="flex flex-col gap-2 md:col-span-2 wrapper">
+                        <label for="message" class="block font-normal text-sm text-gray-900">
+                            Message <span class="text-green-600">*</span>
+                        </label>
+                        <textarea 
+                            id="message"                             
+                            class="w-full border h-60 py-3 px-6 border-gray-500 rounded-lg md:h-33 text-gray-900 focus:outline-none focus:ring-0 focus:border-gray-500"></textarea>
+                            <p class="hidden text-sm error text-red-error">This field is required</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 wrapper">
+                <div class="flex gap-4 items-center">
+                    <input type="checkbox" id="consent" class="appearance-none border bg-white inline-block border-gray-500 w-[18px] h-[18px] rounded-xs checked:bg-[url('/assets/images/icon-checkbox-check.svg')] checked:bg-center checked:bg-no-repeat checked:bg-contain checked:border-none">
+                    <label for="consent" class="font-normal text-sm text-gray-900">I consent to being contacted by the team<span class="text-green-600">*</span></label>
+                </div>
+                <p class="hidden text-sm error text-red-error">To submit this form, please consent to being contacted</p>
+            </div>
+            <button type="submit" class="bg-green-600 hover:bg-gray-900 rounded-lg text-white text-md font-bold w-full px-10 py-4 cursor-pointer" id="submit-btn">Submit</button>
+        </fieldset>
+    </form>
+    <section id="success-message" class="bg-gray-900 rounded-xl p-6 flex flex-col gap-2 absolute z-50 top-6 max-w-[327px] w-full md:max-w-[450px] hidden">
+        <div class="flex gap-2 items-center">
+            <img src="assets/images/icon-success-check.svg" alt="success icon" class="h-[19.5px]">
+            <p class="text-md text-white font-bold">Message Sent!</p>
+        </div>
+        <p class="text-sm text-green-200 font-normal">Thanks for completing the form. We’ll be in touch soon!</p>
+    </section>
+</body>
+</html>
