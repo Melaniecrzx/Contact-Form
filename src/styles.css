@@ -237,6 +237,9 @@
   .inline-block {
     display: inline-block;
   }
+  .table {
+    display: table;
+  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -270,8 +273,14 @@
   .max-w-\[343px\] {
     max-width: 343px;
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .appearance-none {
     appearance: none;
@@ -328,10 +337,6 @@
   .border-0 {
     border-style: var(--tw-border-style);
     border-width: 0px;
-  }
-  .border-\[1px\] {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-gray-50 {
     border-color: var(--color-gray-50);
@@ -405,45 +410,22 @@
   .text-white {
     color: var(--color-white);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .peer-checked\:bg-green-200 {
-    &:is(:where(.peer):checked ~ *) {
-      background-color: var(--color-green-200);
-    }
-  }
   .checked\:border-none {
     &:checked {
       --tw-border-style: none;
       border-style: none;
-    }
-  }
-  .checked\:border-green-500 {
-    &:checked {
-      border-color: var(--color-green-500);
-    }
-  }
-  .checked\:border-green-600 {
-    &:checked {
-      border-color: var(--color-green-600);
-    }
-  }
-  .checked\:bg-green-200 {
-    &:checked {
-      background-color: var(--color-green-200);
-    }
-  }
-  .checked\:bg-green-500 {
-    &:checked {
-      background-color: var(--color-green-500);
-    }
-  }
-  .checked\:bg-green-600 {
-    &:checked {
-      background-color: var(--color-green-600);
     }
   }
   .checked\:bg-\[url\(\'\/assets\/images\/icon-checkbox-check\.svg\'\)\] {
@@ -454,26 +436,6 @@
   .checked\:bg-\[url\(\'\/assets\/images\/icon-radio-selected\.svg\'\)\] {
     &:checked {
       background-image: url('/assets/images/icon-radio-selected.svg');
-    }
-  }
-  .checked\:bg-\[url\(\'assets\/images\/icon-radio-selected\.svg\'\)\] {
-    &:checked {
-      background-image: url('assets/images/icon-radio-selected.svg');
-    }
-  }
-  .checked\:bg-\[url\(\'assets\/images\/icon-success-check\.svg\'\)\] {
-    &:checked {
-      background-image: url('assets/images/icon-success-check.svg');
-    }
-  }
-  .checked\:bg-\[url\(assets\/images\/icon-success-check\.svg\)\] {
-    &:checked {
-      background-image: url(assets/images/icon-success-check.svg);
-    }
-  }
-  .checked\:bg-\[length\:12px_12px\] {
-    &:checked {
-      background-size: 12px 12px;
     }
   }
   .checked\:bg-contain {
@@ -489,18 +451,6 @@
   .checked\:bg-no-repeat {
     &:checked {
       background-repeat: no-repeat;
-    }
-  }
-  .hover\:bg-black\/50 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in srgb, #000 50%, transparent);
-        @supports (color: color-mix(in lab, red, red)) {
-          & {
-            background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
-          }
-        }
-      }
     }
   }
   .hover\:bg-gray-900 {
@@ -519,11 +469,6 @@
     &:focus {
       --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-  .focus\:ring-green-500 {
-    &:focus {
-      --tw-ring-color: var(--color-green-500);
     }
   }
   .focus\:outline-none {
@@ -618,6 +563,11 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -688,6 +638,7 @@
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
